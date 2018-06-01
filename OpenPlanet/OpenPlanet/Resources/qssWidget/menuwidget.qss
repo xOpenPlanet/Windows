@@ -1,0 +1,42 @@
+QWidget#MenuWidget
+{
+background-color: white;
+}
+
+QLabel#signLabel
+{
+color: grey;
+}
+
+QFrame#line
+{
+color: #f3f3f3;
+}
+
+QPushButton
+{
+text-align:left;
+border: none;
+padding-left: 20px;
+background-color: white;
+}
+QPushButton:hover
+{
+background-color: #ebecee;
+}
+
+QPushButton#profileBtn
+{
+border: none;
+text-align: left;
+padding: 0;
+}
+QPushButton#profileBtn:hover
+{
+color: rgb(0, 170, 255);
+}
+
+QFrame#line_2
+{
+color: #f3f3f3;
+}

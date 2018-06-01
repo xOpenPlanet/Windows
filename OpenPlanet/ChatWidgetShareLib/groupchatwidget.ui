@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GroupChatWidget</class>
+ <widget class="QWidget" name="GroupChatWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>629</width>
+    <height>489</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="mPButtonGroupExpress">
+   <property name="geometry">
+    <rect>
+     <x>45</x>
+     <y>330</y>
+     <width>30</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupFont">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>30</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Return</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupPicture">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>330</y>
+     <width>30</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupCloseW">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>458</y>
+     <width>70</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>关闭</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="mTextEditGroup">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>360</y>
+     <width>481</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupSend">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>330</y>
+     <width>56</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>56</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>56</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>发送</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mLabelSend">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>458</y>
+     <width>481</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupShake">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>330</y>
+     <width>30</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupVoiceChat">
+   <property name="geometry">
+    <rect>
+     <x>115</x>
+     <y>330</y>
+     <width>30</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupCutPicture">
+   <property name="geometry">
+    <rect>
+     <x>185</x>
+     <y>330</y>
+     <width>30</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mLabelBKTool">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>329</y>
+     <width>481</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mLabelGroupNum">
+   <property name="geometry">
+    <rect>
+     <x>482</x>
+     <y>0</y>
+     <width>147</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+    </font>
+   </property>
+   <property name="text">
+    <string> 群成员</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="mGroupUserlistWidget">
+   <property name="geometry">
+    <rect>
+     <x>482</x>
+     <y>22</y>
+     <width>147</width>
+     <height>468</height>
+    </rect>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonGroupLog">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>330</y>
+     <width>75</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>75</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>75</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>消息记录</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="refreshBtn">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>0</y>
+     <width>26</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>26</width>
+     <height>26</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>26</width>
+     <height>26</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../OpenPlanet/openplanet.qrc">:/GroupChat/Resources/groupchat/refresh.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="searchBtn">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>0</y>
+     <width>26</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>26</width>
+     <height>26</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>26</width>
+     <height>26</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCefView" name="mGroupWebView" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>481</width>
+     <height>281</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>mLabelBKTool</zorder>
+  <zorder>mLabelSend</zorder>
+  <zorder>mPButtonGroupExpress</zorder>
+  <zorder>mPButtonGroupFont</zorder>
+  <zorder>mPButtonGroupPicture</zorder>
+  <zorder>mPButtonGroupCloseW</zorder>
+  <zorder>mTextEditGroup</zorder>
+  <zorder>mPButtonGroupSend</zorder>
+  <zorder>mPButtonGroupShake</zorder>
+  <zorder>mPButtonGroupVoiceChat</zorder>
+  <zorder>mPButtonGroupCutPicture</zorder>
+  <zorder>mLabelGroupNum</zorder>
+  <zorder>mGroupUserlistWidget</zorder>
+  <zorder>mPButtonGroupLog</zorder>
+  <zorder>refreshBtn</zorder>
+  <zorder>searchBtn</zorder>
+  <zorder>mGroupWebView</zorder>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCefView</class>
+   <extends>QWidget</extends>
+   <header location="global">qcefview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../OpenPlanet/openplanet.qrc"/>
+ </resources>
+ <connections/>
+</ui>

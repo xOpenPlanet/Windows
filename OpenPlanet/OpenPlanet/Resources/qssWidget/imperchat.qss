@@ -1,0 +1,110 @@
+QWidget
+{
+background-color: #042439;
+}
+
+QWidget#titleWidget
+{
+border: none;
+border-bottom: 1px solid #073552;
+}
+
+QFrame#line
+{
+color: #073552;
+}
+
+QPushButton#mPButtonSecretLetter
+{
+border-image: url(:/PerChat/Resources/person/mixin.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonSecretLetter:hover
+{
+border: 1px;
+}
+
+QPushButton#mPButtonPerFont
+{
+border-image: url(:/PerChat/Resources/person/font.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerFont:hover
+{
+border: 1px;
+}
+
+QPushButton#mPButtonPerExpress
+{
+border-image: url(:/PerChat/Resources/person/biaoqing.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerExpress:hover
+{
+border: 1px;
+}
+
+QPushButton#mPButtonPerShake
+{
+border-image: url(:/PerChat/Resources/person/doudong.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerShake:hover
+{
+border: 1px;
+}
+
+QPushButton#mPButtonPerVoiceChat
+{
+border-image: url(:/PerChat/Resources/person/yuyin.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerVoiceChat:hover
+{
+border: 1px;
+}
+
+QPushButton#mPButtonPerPicture
+{
+border-image: url(:/PerChat/Resources/person/picture.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerPicture:hover
+{
+border: 1px;
+}
+
+QPushButton#mPButtonPerCutPicture
+{
+border-image: url(:/PerChat/Resources/person/jietu.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerCutPicture:hover
+{
+border: 1px;
+}
+
+QPushButton#mPButtonPerLog
+{
+margin-top: 1px;
+border: none;
+color: white;
+}
+QPushButton#mPButtonPerLog:hover{
+background-color: #0a182d;
+}
+
+QPushButton#mPButtonPerSend
+{
+background-color: #15447c;
+margin-top: 1px;
+border: none;
+color: white;
+}
+QPushButton#mPButtonPerSend:hover{
+background-color: #0a182d;
+}
+
+QTextEdit#mTextEditPer
+{
+border: none;
+color: white;
+}
+
+QLabel
+{
+color: #108ee9;
+}

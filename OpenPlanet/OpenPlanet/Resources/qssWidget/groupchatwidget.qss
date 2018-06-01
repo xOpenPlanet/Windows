@@ -1,0 +1,64 @@
+QWidget
+{
+background-color: #042439;
+}
+
+QTextEdit#mTextEditGroup
+{
+background-color: #042439;
+border: none;
+color: white;
+}
+
+QPushButton#mPButtonGroupSend
+{
+background-color: #15447c;
+margin-top: 1px;
+border: none;
+color: white;
+}
+QPushButton#mPButtonGroupSend:hover{
+background-color: #0a182d;
+}
+
+QListWidget#mGroupUserlistWidget
+{
+border: none;
+border-left: 1px solid #073552;
+color: #108ee9;
+}
+
+QPushButton#mPButtonGroupLog
+{
+margin-top: 1px;
+border: none;
+color: white;
+}
+QPushButton#mPButtonGroupLog:hover{
+background-color: #0a182d;
+}
+
+QPushButton#searchBtn
+{
+border-image: url(:/searchWidget/Resources/searchWidget/groupSearch.png);
+}
+QPushButton#searchBtn:checked
+{
+border-image: url(:/searchWidget/Resources/searchWidget/groupSearch_pressed.png);
+}
+
+QLabel#mLabelGroupNum
+{
+color: #108ee9;
+}
+
+QMenu
+{
+background-color: #72a4d6;
+color: #042439;
+}
+
+QMenu::item:selected
+{
+color: white;
+}

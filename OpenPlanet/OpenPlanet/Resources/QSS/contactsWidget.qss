@@ -1,0 +1,53 @@
+QListWidget
+{
+    border:none;
+    background-color: #000000;
+}
+QListWidget::item:selected
+{
+    border:none;
+    background-color: #183257;
+	padding: -1px;
+}
+QPushButton#mCPButtonCantact
+{
+    background-image:url(':/Tab/Resources/tabContacts/tab_friend_selected.png');
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    background-color: #f5f5f5;
+}
+QPushButton#add
+{
+	background-image:url(':/Mine/Resources/mine/icon_add.png');
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    background-color:#d6d6d6;
+}
+QPushButton#mCPButtonOrganization
+{
+    background-image:url(':/Tab/Resources/tabContacts/tab_org_normal.png');
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    background-color:#d6d6d6;
+}
+QPushButton#mCPButtonGroup
+{
+    background-image:url(':/Tab/Resources/tabContacts/tab_group_normal.png');
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    background-color:#d6d6d6;
+}
+QToolTip{ background-color:white; }
+
+QFrame#separateLine
+{
+background-color: #042439;
+}

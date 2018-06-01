@@ -1,0 +1,26 @@
+QListWidget
+{
+    border:none;
+    background-color: #0a182d;
+}
+QListWidget::item:selected
+{
+    border:none;
+    background-color: #183257;
+	padding: -1px;
+}
+
+QFrame#separateLine
+{
+background-color: #042439;
+}
+
+QStackedWidget#chatStackedWidget
+{
+background-image: url(:/robotsWidget/Resources/mainWidget/theme_background.png);
+background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+	background-color: #042439;
+}

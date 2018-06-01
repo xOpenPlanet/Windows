@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>IMSearchPerson</class>
+ <widget class="QWidget" name="IMSearchPerson">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>385</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>IMSearchPerson</string>
+  </property>
+  <widget class="QLineEdit" name="mlineEditSearchPerson">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>15</y>
+     <width>381</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mPButtonSearchPerson">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>10</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="mLabelSearchPerson">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>700</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="CFriendListWidgetBase" name="mListWidgetSearchPerson">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>60</y>
+     <width>700</width>
+     <height>325</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>mLabelSearchPerson</zorder>
+  <zorder>mlineEditSearchPerson</zorder>
+  <zorder>mPButtonSearchPerson</zorder>
+  <zorder>mListWidgetSearchPerson</zorder>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CFriendListWidgetBase</class>
+   <extends>QListWidget</extends>
+   <header>cfriendlistwidgetbase.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

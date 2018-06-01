@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateGroupWidget</class>
+ <widget class="QWidget" name="CreateGroupWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>570</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CreateGroupWidget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="CFriendListWidgetBase" name="m_listContactsList">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>89</y>
+     <width>284</width>
+     <height>360</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="m_lbShowGroupMembersCount">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>50</y>
+     <width>260</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>请勾选需要添加的联系人</string>
+   </property>
+  </widget>
+  <widget class="CFriendListWidgetBase" name="m_listGroupMembers">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>89</y>
+     <width>284</width>
+     <height>310</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="m_lbAboveBkColorLeft">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>285</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="m_lineSearchText">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>241</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="m_lbAboveBkColorRight">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>30</y>
+     <width>285</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="m_btnConfirm">
+   <property name="geometry">
+    <rect>
+     <x>409</x>
+     <y>410</y>
+     <width>65</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="m_btnCancel">
+   <property name="geometry">
+    <rect>
+     <x>486</x>
+     <y>410</y>
+     <width>65</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>取消</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="m_lbBelowBkColorRight">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>400</y>
+     <width>285</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="m_lineGroupName">
+   <property name="geometry">
+    <rect>
+     <x>297</x>
+     <y>410</y>
+     <width>100</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>m_lbBelowBkColorRight</zorder>
+  <zorder>m_lbAboveBkColorRight</zorder>
+  <zorder>m_lbAboveBkColorLeft</zorder>
+  <zorder>m_listContactsList</zorder>
+  <zorder>m_lbShowGroupMembersCount</zorder>
+  <zorder>m_listGroupMembers</zorder>
+  <zorder>m_lineSearchText</zorder>
+  <zorder>m_btnConfirm</zorder>
+  <zorder>m_btnCancel</zorder>
+  <zorder>m_lineGroupName</zorder>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CFriendListWidgetBase</class>
+   <extends>QListWidget</extends>
+   <header location="global">cfriendlistwidgetbase.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

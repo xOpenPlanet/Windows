@@ -1,0 +1,66 @@
+QListWidget
+{
+    border:none;
+    background-color: #000000;
+}
+QListWidget::item:selected
+{
+    border:none;
+    background-color: #183257;
+	padding: -1px;
+}
+
+/*
+    消息
+*/
+QPushButton#mMPButtonMessage
+{
+	background-image:url(":/Tab/Resources/tabMessage/tab_message_selected.png");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	border: none;
+	background-color:#F0F0F0;
+}
+/*
+    任务
+*/
+QPushButton#mMPButtonTask
+{
+    background-image:url(":/Tab/Resources/tabMessage/tab_task_normal.png");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	border: none;
+    background-color:#d6d6d6;
+}
+/*
+    电话
+*/
+QPushButton#mMPButtonPhone
+{
+    background-image:url(":/Tab/Resources/tabMessage/tab_deivce_normal.png");
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	border: none;
+    background-color:#d6d6d6;
+}
+/*
+    添加
+*/
+QPushButton#mPButtonAdd
+{
+    border-image:url(":/Mine/Resources/mine/icon_add.png") 0 0 0 0 stretch stretch;
+}
+
+QLabel#mLabelMessageBK
+{
+    background-color:#d6d6d6;
+}
+
+QToolTip{ background-color:white; }
+
+
+
+

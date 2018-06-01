@@ -1,0 +1,57 @@
+QWidget#perProfileWidget
+{
+background-color: rgb(255, 255, 255);
+}
+
+QLabel
+{
+color: #108ee9;
+}
+
+QLabel#signLabel
+{
+color: grey;
+}
+
+QWidget#widget_2
+{
+background-color: #0a182d;
+}
+
+QLabel#label_3
+{
+color: grey;
+}
+
+QLabel#label1
+{
+color: grey;
+}
+
+QLineEdit#noteEdit
+{
+border: none;
+margin-left: -3px;
+color: #108ee9;
+background-color: #0a182d;
+}
+
+QLabel#label_7
+{
+color: grey;
+}
+
+QLabel#label_5
+{
+color: grey;
+}
+
+QLabel#label_6
+{
+color: grey;
+}
+
+QWidget#midwidget
+{
+background-color: #0a182d;
+}

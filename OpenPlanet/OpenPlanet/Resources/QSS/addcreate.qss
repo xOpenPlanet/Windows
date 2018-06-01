@@ -1,0 +1,82 @@
+QPushButton#mPButtonFindPerson
+{
+	border:none;
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+    color:white;
+}
+
+QPushButton#mPButtonFindGroup
+{
+	border:none;
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+    color:white;
+}
+
+QPushButton#mPButtonFindAppNo
+{
+	border:none;
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+    color:white;
+}
+
+QLabel#mLabelBK
+{
+	background-color:#4e67a5;
+}
+QLabel#mLabelSearchPerson
+{
+	background-color:#F0F8FF;
+}
+QListWidget#mListWidgetSearchPerson
+{
+	background-color:#F0F8FF;
+}
+QLineEdit#mlineEditSearchPerson
+{
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+}
+
+QPushButton#mPButtonSearchPerson
+{
+	border:none;
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+    color:white;
+	background-color:rgba(0, 155, 219);
+}
+
+QPushButton#mPButtonSearchPerson:hover
+{
+	border:none;
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+    color:white;
+	background-color:rgba(0, 139, 197);
+}
+
+QPushButton#mPButtonSearchGroup
+{
+	border:none;
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+    color:white;
+	background-color:rgba(0, 155, 219);
+}
+
+QPushButton#mPButtonSearchGroup:hover
+{
+	border:none;
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+    color:white;
+	background-color:rgba(0, 139, 197);
+}
+
+QLabel#mLabelSearchGroup
+{
+	background-color:#F0F8FF;
+}
+QListWidget#mListWidgetSearchGroup
+{
+	background-color:#F0F8FF;
+}
+QLineEdit#mlineEditSearchGroup
+{
+	font:75 12pt "Î¢ÈíÑÅºÚ";
+}

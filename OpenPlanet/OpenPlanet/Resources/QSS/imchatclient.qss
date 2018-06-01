@@ -1,0 +1,201 @@
+/*
+    主面板标题Widget
+*/
+QWidget#mMainWidgetTitle
+{
+    /*background-color:#4e67a5;*/
+	background-image: url(":/IMChatClient/Resources/mainWidgetTitle.jpg");
+}
+/*
+    主面板标题Label
+*/
+QLabel#mMainLabelTitle
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/main_logo.png") 0 0 0 0 stretch stretch;
+}
+/*
+    主面板设置按钮
+*/
+QPushButton#mPButtonSet
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/main_set.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonSet:hover
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/main_set_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonSet:pressed
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/main_set_down.png") 0 0 0 0 stretch stretch;
+}
+/*
+    主面板最小化按钮
+*/
+QPushButton#mPButtonMiniSize
+{
+    border-image:url(":/Login/Resources/login/sysbtn_min_white_normal.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonMiniSize:hover
+{
+    border-image:url(":/Login/Resources/login/sysbtn_min_white_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonMiniSize:pressed
+{
+    border-image:url(":/Login/Resources/login/sysbtn_min_white_down.png") 0 0 0 0 stretch stretch;
+}
+/*
+    主面板关闭按钮
+
+QPushButton#mPButtonExit
+{
+    border-image:url(":/Login/Resources/login/sysbtn_close_white_normal.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonExit:hover
+{
+    border-image:url(":/Login/Resources/login/sysbtn_close_white_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonExit:pressed
+{
+    border-image:url(":/Login/Resources/login/sysbtn_close_white_down.png") 0 0 0 0 stretch stretch;
+}
+*/
+/*
+    消息按钮
+*/
+QPushButton#mPButtonMessage
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_message_normal.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonMessage:hover
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_message_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonMessage:pressed
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_message_selected.png") 0 0 0 0 stretch stretch;
+}
+/*
+    联系人
+*/
+QPushButton#mPButtonContacts
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_contacts_normal.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonContacts:hover
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_contacts_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonContacts:pressed
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_contacts_selected.png") 0 0 0 0 stretch stretch;
+}
+/*
+    应用
+*/
+QPushButton#mPButtonApp
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_app_normal.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonApp:hover
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_app_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonApp:pressed
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_app_selected.png") 0 0 0 0 stretch stretch;
+}
+/*
+    发现
+*/
+QPushButton#mPButtonFind
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_find_normal.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonFind:hover
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_find_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonFind:pressed
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_find_selected.png") 0 0 0 0 stretch stretch;
+}
+/*
+    我的
+*/
+QPushButton#mPButtonMine
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_mine_normal.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonMine:hover
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_mine_hover.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonMine:pressed
+{
+    border-image:url(":/IMChatClient/Resources/imchatclient/nav_mine_selected.png") 0 0 0 0 stretch stretch;
+}
+/*
+    昵称
+*/
+QLabel#mLabelNickName
+{
+    color:white;
+}
+/*
+    签名
+*/
+QLabel#mLabelAutoGraph
+{
+    color:white;
+}
+/*
+    我的空间
+*/
+QPushButton#mPButtonZone
+{
+    border-image:url(":/Mine/Resources/mine/icon_roomage.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonZone:hover
+{
+    border:1px;
+}
+/*
+    我的邮箱
+*/
+QPushButton#mPButtonMail
+{
+    border-image:url(":/Mine/Resources/mine/icon_mail.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonMail:hover
+{
+    border:1px;
+}
+/*
+    我的票据
+*/
+QPushButton#mPButtonNote
+{
+    border-image:url(":/Mine/Resources/mine/icon_bill.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonNote:hover
+{
+    border:1px;
+}
+/*
+    我的云盘
+*/
+QPushButton#mPButtonCloud
+{
+    border-image:url(":/Mine/Resources/mine/icon_cloud.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonCloud:hover
+{
+    border:1px ;
+}
+
+QListWidget#mGropChatList
+{
+	border: none;background-color:#FFFFFF;
+}
+
+QToolTip{background-color:white;}

@@ -1,0 +1,184 @@
+/********************************个人聊天最小化窗口*************************/
+QPushButton#mPButtonPerMinSize
+{
+    border-image:url(":/PerChat/Resources/person/minsize03.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerMinSize:hover
+{
+    border-image:url(":/PerChat/Resources/person/minsize24.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerMinSize:pressed
+{
+    border-image:url(":/PerChat/Resources/person/minsize35.png") 0 0 0 0 stretch stretch;
+}
+/********************************个人聊天最大化窗口*************************/
+QPushButton#mPButtonPerMaxSize
+{
+    border-image:url(":/PerChat/Resources/person/maxsize04.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerMaxSize:hover
+{
+    border-image:url(":/PerChat/Resources/person/maxsize25.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerMaxSize:pressed
+{
+    border-image:url(":/PerChat/Resources/person/maxsize36.png") 0 0 0 0 stretch stretch;
+}
+/********************************个人聊天关闭窗口*************************/
+QPushButton#mPButtonPerClose
+{
+    border-image:url(":/PerChat/Resources/person/close01.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerClose:hover
+{
+    border-image:url(":/PerChat/Resources/person/close02.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerClose:pressed
+{
+    border-image:url(":/PerChat/Resources/person/close03.png") 0 0 0 0 stretch stretch;
+}
+QLabel#mPersonLabelBK
+{
+    background-color:#4e67a5;
+}
+QPushButton#mPButtonPerSpace
+{
+    border-image:url(":/Mine/Resources/mine/icon_roomage.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerSpace:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerFont
+{
+    border-image:url(":/PerChat/Resources/person/font.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerFont:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerExpress
+{
+    border-image:url(":/PerChat/Resources/person/biaoqing.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerExpress:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerShake
+{
+    border-image:url(":/PerChat/Resources/person/doudong.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerShake:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerVoiceChat
+{
+    border-image:url(":/PerChat/Resources/person/yuyin.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerVoiceChat:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerPicture
+{
+    border-image:url(":/PerChat/Resources/person/picture.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerPicture:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerCutPicture
+{
+    border-image:url(":/PerChat/Resources/person/jietu.png") 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerCutPicture:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerCloseW
+{
+     color:white;
+     border-image:url(:/Login/Resources/login/button_login_normal.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerCloseW:hover
+{
+     border-image:url(:/Login/Resources/login/button_login_hover.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerCloseW:pressed
+{
+    border-image:url(:/Login/Resources/login/button_login_down.png) 0 0 0 0 stretch stretch;
+}
+QWebView#mWebView
+{
+    background-color:#FFFFFF;
+    border: none;
+}
+QTextEdit#mTextEditPer
+{
+    border: none;
+}
+QPushButton#mPButtonPerVoice
+{
+    border-image:url(:/PerChat/Resources/person/voice.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerVoice:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerVedio
+{
+    border-image:url(:/PerChat/Resources/person/vedio.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerVedio:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerFile
+{
+    border-image:url(:/PerChat/Resources/person/file.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerFile:hover
+{
+    border:1px;
+}
+QPushButton#mPButtonPerMail
+{
+    border-image:url(:/PerChat/Resources/person/mail.png) 0 0 0 0 stretch stretch;
+}
+QPushButton#mPButtonPerMail:hover
+{
+    border:1px;
+}
+QListWidget#mChatListWidget
+{
+    background-color:#F0F0F0;
+    border: none;
+}
+QLabel#mLabelPerNickChat
+{
+    color:white;
+}
+QLabel#mLabelPerAutoGraph
+{
+    color:white;
+}
+QLabel#mLabelSend
+{
+    background-color:#FFFFFF;
+}
+QLabel#mLabelBKTool
+{
+    background-color:#FFFFFF;
+}
+
+QTextEdit#mTextEditPer
+{
+    background-color:#FFFFFF;
+}
+
+QLabel#mLabelPerInfo
+{
+    border-image:url(:/PerChat/Resources/person/1.jpg) 0 0 0 0 stretch stretch;
+}

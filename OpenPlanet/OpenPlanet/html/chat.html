@@ -1,0 +1,1085 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <title></title>
+    <style>
+    	/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+    	::-webkit-scrollbar
+    	{
+        	width: 12px;
+    	}
+    	/*定义滚动条轨道 内阴影+圆角*/
+    	::-webkit-scrollbar-track
+    	{
+        	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        	border-radius: 10px;
+        	background-color: #0a182d;
+    	}
+    	/*定义滑块 内阴影+圆角*/
+    	::-webkit-scrollbar-thumb
+    	{
+        	border-radius: 10px;
+        	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        	background-color: #073552;
+    	}
+
+    	* {font-family:"microsoft yahei";}
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            margin: 0 0;
+        }
+        ul {
+        	margin-bottom: 1px;
+        }
+        /*定义显示的格式*/
+        p {
+            color: black;
+            font-family: "microsoft yahei";
+            font-size: 14px;
+            display: inline;
+        }
+        /*自己的消息*/
+        .myMsg {
+            max-height: 300px;
+            max-width: 300px;
+            position: relative;
+            float: right;
+        }
+        /*显示自己的头像*/
+        .divMyHead {
+            position: relative;
+            float: right;
+            margin: 5px 0px 5px 0px;
+            right: 1px;
+            border-radius: 5px;
+        }
+        /*对方的消息*/
+        .otherMsg {
+            max-height: 300px;
+            max-width: 300px;
+            position: relative;
+            float: right;
+        }
+        /*显示对方的头像*/
+        .divotherHead {
+            position: relative;
+            float: left;
+            margin: 5px 0px 0px 0px;
+            left: 1px;
+            border-radius: 5px;
+            width: 40px;
+        }
+        .divMyHead>img, .divotherHead>img {
+        	border-radius: 15px;
+        }
+        /*实现对方发送来的消息的方框*/
+        .triangle-left {
+            float: left;
+            max-width: 350px;
+            border-radius: 5px;
+            padding: 4px;
+            background: #7696c8;
+            position: relative;
+            display: inline-block;
+            margin: 5px 0px 5px 0px;
+            word-wrap: break-word;
+            line-height: 20px;
+            padding: 5px;
+        }
+
+            .triangle-left:before {
+                position: absolute;
+                content: "";
+                display: block;
+            }
+            /*实现对方消息的那个小三角，小三角的实现其实是将一个正方形对角线划分为四个小三角，其余的三个设置颜色不可见，只将对自己有用的那一个留下来*/
+            .triangle-left.left:before {
+                border-color: rgba(0, 0, 0, 0) #7696c8 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+                border-width: 5px 5px 5px 0;
+                border-style: solid;
+                bottom: auto;
+                left: -5px;
+                top: 10px;
+            }
+
+            .triangle-left.left:after {
+                border-color: rgba(0, 0, 0, 0) #7696c8 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+                border-width: 5px 5px 5px 0;
+                border-style: solid;
+                bottom: auto;
+                left: -5px;
+                top: 8px;
+            }
+        /*实现右边的气泡*/
+        .triangle-right {
+            float: right;
+            max-width: 350px;
+            border: 1px solid #d5cda6;
+            border-radius: 5px;
+            padding: 5px;
+            background: #d5cda6;
+            position: relative;
+            display: inline-block;
+            margin: 5px 1px 5px 0;
+            word-wrap: break-word;
+        }
+
+            .triangle-right:before {
+                position: absolute;
+                content: "";
+                display: block;
+            }
+
+            .triangle-right.right:before {
+                border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d5cda6;
+                border-width: 5px 0px 5px 5px;
+                border-style: solid;
+                bottom: auto;
+                right: -6px;
+                top: 8px;
+            }
+
+            .triangle-right:after {
+                position: absolute;
+                content: "";
+                display: block;
+            }
+
+            .triangle-right.right:after {
+                border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d5cda6;
+                border-width: 5px 0px 5px 5px;
+                border-style: solid;
+                bottom: auto;
+                right: -6px;
+                top: 8px;
+            }
+
+        ul {
+            height: auto;
+            float: right;
+			padding-left: 10px;
+        }
+
+        li {
+            list-style: none;
+            margin-top: -15px;
+            line-height: 20px;
+            float: right; /*wxd add  使发送状态在消息右边*/
+        }
+
+        .MessageState {
+            font-size: 10px;
+            color: #0A0A0A;
+            float: right;
+            margin: 0 auto;
+            margin-right: 3px;
+            margin-top: 20px;
+            padding: 2px 4px;
+        }
+
+        .btn ul li {
+            overflow: hidden;
+            float: right;
+        }
+
+        .lb div {
+            float: left;
+        }
+
+        .namesta ul li {
+            overflow: hidden;
+            float: none;
+        }
+    </style>
+</head>
+<body id="content" style="background:#042439">
+</body>
+<script language="JavaScript">
+window.onload = function()
+		{
+		};
+		 /*拖拽的目标对象------ document 监听drop 并防止浏览器打开客户端的图片*/
+		document.ondragover = function (e) {
+			e.preventDefault();  //只有在ondragover中阻止默认行为才能触发 ondrop 而不是 ondragleave
+		};
+		document.ondrop = function (e) {
+			e.preventDefault();  //阻止 document.ondrop的默认行为  *** 在新窗口中打开拖进的图片
+		};
+    
+		document.getElementById("content").ondragover = function (e) {
+			e.preventDefault();
+		};
+		document.getElementById("content").ondrop = function (e) {
+		slotDrag();
+		};
+	
+        function GetMsgState(msgState) {
+            switch (msgState) {
+                case 0:                         //待发送
+                    //return "待发送";
+                    return "./MessageReminder/wait_for_send.png";
+                    break;
+                case 1:
+                    //return "预发送";
+                    return "./MessageReminder/wait_for_send.png";
+                    break;
+                case 2:
+                    //return "发送中";
+                    return "./MessageReminder/send_ing.png";
+                    break;
+                case 3:
+                    //return "已投递";
+                    return "./MessageReminder/delivered.png";
+                    break;
+                case 4:
+                    //return "已发送";
+                    return "./MessageReminder/send_ed.png";
+                    break;
+                case 5:
+                    //return "已送达";
+                    return "./MessageReminder/sent.png";
+                    break;
+                case 6:
+                    //return "已查看";
+                    return "./MessageReminder/viewed.png";
+                    break;
+                case 7:
+                    return "./MessageReminder/unviewed.png";
+                    break;
+                case 8:
+                    //return "发送失败";
+                    return "./MessageReminder/send_failed.png";
+                    break;
+                default:
+                    // return "erro";
+                    return "./MessageReminder/delete.png";
+                    break;
+            }
+        }
+        function SetMsgState(msgID, msgState, score) {
+            var strMsgState = GetMsgState(msgState);
+			var imgObj = document.getElementById(msgID).getElementsByClassName('MessageState')[0];
+			//var imgObj = document.getElementById(msgID);
+            if (imgObj != null) {
+                //objState.innerText = strMsgState;
+                imgObj.src = strMsgState;
+            }
+			
+			setScore(msgID, msgState, score);
+        }
+		function setScore(msgID, msgState, score)
+		{
+		    if (score > 0)
+			{
+			    var scoreObj = document.getElementById(msgID).getElementsByClassName('score')[0];
+			
+                scoreObj.innerHTML = "<div style='text-align:right;font-size:13px;color:#e4ba7b;'>\
+                <img width='20px' height='20px' src='diamond1.png' style='margin-bottom: -4px'>+" +score+ "</div>";
+			}
+            
+            window.setTimeout("window.scrollTo(0, document.body.scrollHeight);", 0);
+		}
+        function ReplaceImage(msgID, filePath) {
+            var div = document.getElementById(msgID);
+            if (obj != null) {
+                //objState.innerText = strMsgState;
+                obj.innerHTML = filePath;
+            }
+        }
+        function img() {
+
+        }
+        function addFile() {
+            var str = '<INPUT type="file" size="20" NAME="File">'
+            //document.getElementById("MyFile").insertAdjacentHTML("beforeEnd", str)
+            document.getElementById("content").insertAdjacentHTML("beforeEnd", str)
+        }
+        function getAll() {
+            content = document.body.innerHTML
+        }
+        function SendAppend(strImgPath, strMsg, strMsgID, MsgState, score) {
+            var obj = document.getElementById("content");
+            var strMsgState = GetMsgState(MsgState);
+
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div id=" + strMsgID + " style='overflow:hidden;'>\
+                    <p class='divMyHead'>\
+                        <img width=30px height=30px src =" + strImgPath + " \>\
+                    </p>\
+                    <div style='float:right;'>\
+                        <ul class=''>\
+                            <li>\
+                                <img class='MessageState' style='border-radius:50%;' width=12px height=12px src=\"" + strMsgState + "\"\>\
+                            </li>\
+                            <li>\
+                                <p class='triangle-right right' ondblclick=\"ChangeSize(this)\">" + strMsg + "</p>\
+                            </li>\
+                        </ul>\
+                    </div>\
+					<div class='score'></div>\
+                 </div>");
+		
+		    if (score > 0)
+		        setScore(strMsgID, MsgState, score);
+                 
+            window.setTimeout("window.scrollTo(0, document.body.scrollHeight);", 0);
+        }
+
+        function SendGroupAppend(strImgPath, strMsg, strMsgID, MsgState) {
+            var obj = document.getElementById("content");
+            var strMsgState = GetMsgState(MsgState);
+
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div style='overflow:hidden;'>\
+                    <p class='divMyHead'>\
+                        <img width=30px height=30px src =" + strImgPath + " \>\
+                    </p>\
+                    <div style='float:right;'>\
+                        <ul class=''>\
+                            <li>\
+                                <img id=" + strMsgID + " class='MessageState' style='border-radius:50%;' width=12px height=12px src=\"" + strMsgState + "\"\>\
+                            </li>\
+                            <li>\
+                                <p class='triangle-right right' ondblclick=\"ChangeGroupSize(this)\">" + strMsg + "</p>\
+                            </li>\
+                        </ul>\
+                    </div>\
+					<div class='score'></div>\
+                 </div>");
+			
+            //setScore(strMsgID, MsgState);			
+		    
+            window.setTimeout("window.scrollTo(0, document.body.scrollHeight);", 0);
+        }
+
+        function ChangeID(oldID, newID) {
+            document.getElementById(oldID).setAttribute("id", newID);//改ID
+        }
+        //added by wangqingjie
+
+        //js截取字符串，中英文都能用
+        //如果给定的字符串大于指定长度，截取指定长度返回，否者返回源字符串。
+        //字符串，长度
+
+        /**
+         * js截取字符串，中英文都能用
+         * @param str：需要截取的字符串
+         * @param len: 需要截取的长度
+         */
+        function cutstr(str, len) {
+            var str_length = 0;
+            var str_len = 0;
+            str_cut = new String();
+            str_len = str.length;
+            for (var i = 0; i < str_len; i++) {
+                a = str.charAt(i);
+                str_length++;
+                if (escape(a).length > 4) {
+                    //中文字符的长度经编码之后大于4
+                    str_length++;
+                }
+                str_cut = str_cut.concat(a);
+                if (str_length >= len) {
+                    str_cut = str_cut.concat("...");
+                    return str_cut;
+                }
+            }
+            //如果给定字符串小于指定长度，则返回源字符串；
+            if (str_length < len) {
+                return str;
+            }
+        }
+
+        //added by wangqingjie
+        function ProgressBar(ID, num) {
+            var obj = document.getElementById(ID);
+            obj.style.width = num + "px";
+            obj.style.backgroundColor = "#90EE90";
+        }
+
+        function SendFile(strImgPath, strFileName, strMsgID, MsgState, strPicPath, strLiID, size) {
+            var obj = document.getElementById("content");
+            var strMsgState = GetMsgState(MsgState);
+
+            var strMsg = cutstr(strFileName, 15);
+            var progressID = strMsgID.concat("bar");
+            var CancleID = strMsgID.concat("can");
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div style='overflow:hidden;'>\
+                    <p class='divMyHead'>\
+                        <img width=30px height=30px src =" + strImgPath + " />\
+                    </p>\
+                    <div id=" + strMsgID + "  style='float:right;'>\
+                         <ul class=''>\
+                            <li>\
+                                <img class='MessageState' style='border-radius:50%;' width=12px height=12px src=" + strMsgState + "\>\
+                            </li>\
+                            <li>\
+                                <div class='triangle-right right' style=\"width:250px;height:90;margin-left:10px\">\
+                                <div style='width: 100%;height: 100%;background-color: white;'>\
+                                    <div class='lb'style=\"height:60px;\">\
+                                        <div><img  style='margin: 5px;' width=54x height=54px src="+ strPicPath + " /></div>\
+                                        <div class='namesta' style=\"margin:0 auto;\">\
+                                            <ul id=" + strLiID + " style=\"margin:0 auto;padding-left:15px \">\
+                                                <li style='font-size:12px;height:25px;margin-top:10px;color:black'>" + strMsg + "  " + size + " </li>\
+                                                <li  style='font-size:12px;margin-top:5px;'>正在发送文件...</li>\
+                                            </ul>\
+                                       </div>\
+                                    </div>\
+                                    <div style=\"margin-top:3px;padding-top:6px;width: 250px; height: 0px; border: solid 0px #ccc; position:relative\">\
+                                        <div style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                                        <div id=" + progressID + " style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                                    </div>\
+                                    <div class='btn'style=\"margin:0 auto;\">\
+                                        <ul id="+ CancleID + " style=\"margin:0 auto;padding-top:15px;padding-left:35px\">\
+                                            <li style=\"font-size:12px;cursor:hand;color:#0000ff;padding-right:15px\" onclick=\"Cancle(this)\">取消</li>\
+                                            <li style=\"font-size:12px;cursor:hand;color:#0000ff;padding-right:15px\" onclick=\"openFile(this)\">打开</li>\
+                                            <li style=\"font-size:12px;cursor:hand;color:#0000ff;margin-right:0px;padding-right:15px\" onclick=\"openDocument(this)\">打开文件夹</li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                                </div>\
+                            </li>\
+							<li><div class='score'></div></li>\
+                        </ul>\
+                    </div>\
+                 </div>");
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        function openFile(thisa) {
+            var id = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+
+            if (id != null) {
+                slotOpenFile(id);
+            } else {
+                alert("openDocument id == null");
+            }
+        }
+        //added by wangqingjie
+        function openDocument(thisa) {
+            var id = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+
+            if (id != null) {
+                slotOpenDocument(id);
+            } else {
+                alert("openDocument id == null");
+            }
+
+        }
+        //end add
+        function Cancle(thisa) {
+            if (thisa.innerHTML == "取消") {
+                thisa.innerHTML = "重新发送";
+
+                var id = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                var ulid = id.concat("send");
+                var liarr = document.getElementById(ulid).getElementsByTagName("li");
+                for (i in liarr) {
+                    if (liarr[i].innerHTML == "正在发送文件...") {
+                        liarr[i].innerHTML = "";
+                    }
+                }
+
+                slotCancleLoadorDownLoad();
+            } else if (thisa.innerHTML == "重新发送") {
+                thisa.innerHTML = "取消";
+				var div = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+                div.parentNode.removeChild(div);
+				
+                var id = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                slotSendFileByID(id);
+            }
+        }
+        function SendGroupFile(strImgPath, strFileName, strMsgID, MsgState, strPicPath, strUlID, size) {
+            var obj = document.getElementById("content");
+            var strMsgState = GetMsgState(MsgState);
+            var strMsg = cutstr(strFileName, 15);
+            var progressID = strMsgID.concat("bar");
+            var CancleID = strMsgID.concat("can");
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div style='overflow:hidden; '>\
+                    <p class='divMyHead'>\
+                        <img width=30px height=30px src =" + strImgPath + " />\
+                    </p>\
+                    <div style='float:right;'>\
+                         <ul class=''>\
+                            <li>\
+                                <img id=" + strMsgID + " class='MessageState' style='border-radius:50%;' width=12px height=12px src=" + strMsgState + "\>\
+                            </li>\
+                            <li>\
+                                <div class='triangle-right right' style=\"width:250px;height:90px\">\
+                                <div style='width: 100%;height: 100%;background-color: white;'>\
+                                    <div class='lb'style=\"height:60;\">\
+                                        <div><img  style='margin: 5px;' width=54x height=54px src="+ strPicPath + " /></div>\
+                                        <div class='namesta' style=\"margin:0 auto;\">\
+                                            <ul id=" + strUlID + " style=\"margin:0 auto;padding-left:15px \">\
+                                                <li style='font-size:12px;height:30px;margin-top:10px; color:black'>" + strMsg + " " + size + "</li>\
+                                                <li style='font-size:12px;margin-top:5px;'>正在发送文件...</li>\
+                                            </ul>\
+                                       </div>\
+                                    </div>\
+                                    <div style=\"margin-top:3px;padding-top:6px;width: 250px; height: 0px; border: solid 0px #ccc; position:relative\">\
+                                        <div style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                                        <div id=" + progressID + " style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                                    </div>\
+                                    <div class='btn' style=\"margin:0 auto;\">\
+                                        <ul id=" + CancleID + " style=\"margin:0 auto;padding-top:15px;padding-left:35px\">\
+                                            <li style=\"font-size:12px;cursor:hand;color:#0000ff;padding-right:15px\" onclick=\"CancleGroup(this)\">取消</li>\
+                                            <li style=\"font-size:12px;cursor:hand;;padding-right:15px;color:#0000ff\" onclick=\"openGroupFile(this)\">打开</li>\
+                                            <li style=\"font-size:12px;cursor:hand;margin-right:0px;padding-right:15px;color:#0000ff\" onclick=\"openGroupDocument(this)\">打开文件夹</li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                                </div>\
+                            </li>\
+                        </ul>\
+                    </div>\
+                 </div>");
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+		function SetGroupMsgState(msgID, msgState, score) {
+            var strMsgState = GetMsgState(msgState);
+			var imgObj = document.getElementById(msgID);
+            if (imgObj != null) {
+                imgObj.src = strMsgState;
+            }
+			
+			setScore(msgID, msgState, score);
+        }
+        function openGroupFile(thisa) {
+            var obj = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("img");
+            var filename = obj[0].getAttribute("id");
+            slotOpenGroupFile(filename);
+        }
+        function CancleGroup(thisa) {
+            if (thisa.innerHTML == "取消") {
+			 var parent = thisa.parentNode.parentNode.parentNode;
+                var liarr = parent.getElementsByTagName("li");
+                for (i in liarr) {
+                    if (liarr[i].innerHTML == "正在发送文件...") {
+                        liarr[i].innerHTML = "";
+                    }
+                }
+			
+                thisa.innerHTML = "重新发送";
+                slotCancleLoadorDownLoad();
+				
+            } else if (thisa.innerHTML == "重新发送") {
+                thisa.innerHTML = "取消";
+				
+				var div = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+                div.parentNode.removeChild(div);
+				
+                var obj = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("img");
+                var filename = obj[0].getAttribute("id");
+                slotSendFileByID(filename);
+            }
+        }
+
+
+        function openGroupDocument(thisa) {
+            var id = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByTagName("img")[0].getAttribute("id");
+
+            if (id != null) {
+                slotOpenDocument(id);
+            }
+        }
+        //added by wangqingjie 
+        function RecFile(strImgPath, FileName, strPicPath, strFileId, strUlID, strULID2, strSize, score) {
+
+            var FileName = cutstr(FileName, 15);
+            var progressID = strFileId.concat("bar");
+
+            var obj = document.getElementById("content");
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div id= " + strFileId + " style='overflow:hidden;'>\
+			        <p class=\"divotherhead\">\
+			           <img width=30px height=30px src=" + strImgPath + " />\
+			        </p>\
+			        <div class=\"triangle-left left\" style=\" width:250px;height:90px;margin-right:10px\">\
+			        <div style='width: 100%;height: 100%;background-color: white;'>\
+				        <div class='lb'style=\"height:60px;\">\
+                            <div>\
+                     	        <img style='margin: 5px;' width=54x height=54px src=" + strPicPath + " />\
+                            </div>\
+                            <div class='namesta' style=\"height:64px;margin:0 auto;\">\
+                                <ul id=" + strULID2 + " style=\"margin:0px auto;padding-left:15px;\">\
+                                    <li style='font-size:12px;height:30px;margin-top:10px;color:black'>" + FileName + " " + strSize + "</li>\
+                                    <li style='font-size:12px;margin-top:5px;'>有文件需要接收...</li>\
+                                </ul>\
+                            </div>\
+                        </div>\
+                        <div style=\"margin-top:3px;padding-top:6px;width: 250px; height: 0px; border: solid 0px #ccc; position:relative\">\
+                           <div style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                           <div id=" + progressID + " style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                        </div>\
+                        <div class='btn'>\
+                            <ul id= " + strUlID + " style=\"margin:0 auto\">\
+                                <li style=\"font-size:12px;cursor:hand;padding-top:15px;color:#0000ff;padding-right:30px\" onclick=\"getFile(this)\">接收</li>\
+                                <li style=\"font-size:12px;cursor:hand;padding-top:15px;color:#0000ff;padding-right:30px\" onclick=\"saveFile(this)\">另存为</li>\
+                            </ul>\
+                        </div>\
+                   </div>\
+                   </div>\
+				   <div style='margin-left:40px; font-size:13px;color:#e4ba7b;'><img width='20px' height='20px' src='diamond1.png' style='margin-bottom: -4px'>+" +score+ "</div>\
+		        </div>");
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        //end add
+        function RecGroupFile(strImgPath, strNickName, strFileName, strPicPath, strFileId, strUlID, strUlID2, strSize, score) {
+            var FileName = cutstr(strFileName, 15);
+            var progressID = strFileId.concat("bar");
+            var obj = document.getElementById("content");
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div id= " + strFileId + " style='overflow:hidden;'>\
+			        <p class=\"divotherhead\">\
+			           <img width=30px height=30px src=" + strImgPath + " />\
+			           <div style='text-align:left;color:#B2B2B2;font-size:12px;margin-left:10px'>" + strNickName + "</div>\
+			        </p>\
+			        <div class=\"triangle-left left\" style=\" width:250px;height:90px;margin-right:10px\">\
+			        <div style='width: 100%;height: 100%;background-color: white;'>\
+				        <div class='lb'style=\"height:60px;\">\
+                            <div>\
+                     	        <img style='margin: 5px;' width=54x height=54px src=" + strPicPath + " />\
+                            </div>\
+                            <div class='namesta' style=\"height:64px;margin:0 auto;\">\
+                                <ul id=" + strUlID2 + " style=\"margin:0px auto;padding-left:15px;\">\
+                                    <li style='font-size:12px;height:30px;margin-top:10px;color:black'>" + FileName + " " + strSize + "</li>\
+                                    <li style='font-size:12px;margin-top:5px;'>有文件需要接收...</li>\
+                                </ul>\
+                            </div>\
+                        </div>\
+                        <div style=\"margin-top:3px;padding-top:6px;width: 250px; height: 0px; border: solid 0px #ccc; position:relative\">\
+                           <div style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                           <div id=" + progressID + " style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                        </div>\
+                        <div class='btn'>\
+                            <ul id= " + strUlID + " style=\"margin:0 auto\">\
+                                <li style=\"font-size:12px;cursor:hand;padding-top:15px;color:#0000ff;padding-right:30px\" onclick=\"getGroupFile(this)\">接收</li>\
+                                <li style=\"font-size:12px;cursor:hand;padding-top:15px;color:#0000ff;padding-right:30px\" onclick=\"saveGroupFile(this)\">另存为</li>\
+                            </ul>\
+                        </div>\
+                   </div>\
+                   </div>\
+				   <div style='margin-left:40px; font-size:13px;color:#e4ba7b;'><img width='20px' height='20px' src='diamond1.png' style='margin-bottom: -4px'>+" +score+ "</div>\
+		        </div>");
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        function getFile(thisa) {
+            if (thisa.innerText == "接收") {
+                var liarr = thisa.parentNode.getElementsByTagName("li");
+                for (var i in liarr) {
+                    if (liarr[i].innerHTML == "另存为") {
+                        liarr[i].innerHTML = "取消";
+                    }
+                    if (liarr[i].innerHTML == "接收") {
+                        liarr[i].innerHTML = "";
+                    }
+                }
+
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    //alert(objid);
+                    slotGetFile(objid);
+                }
+            }
+            if (thisa.innerText == "打开") {
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    slotOpenFile(objid);
+                }
+            }
+        }
+
+        function saveFile(thisa) {
+            if (thisa.innerText == "另存为") {
+                var bl;
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    //alert(objid);
+                    bl = slotSaveFile(objid);
+                }
+
+                if (bl != 0) {
+                    var liarr = thisa.parentNode.getElementsByTagName("li");
+                    for (var i in liarr) {
+                        if (liarr[i].innerHTML == "另存为") {
+                            liarr[i].innerHTML = "取消";
+                        }
+                        if (liarr[i].innerHTML == "接收") {
+                            liarr[i].innerHTML = "";
+                        }
+                    }
+                }
+
+            } else if (thisa.innerHTML == "打开文件夹") {
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    //alert(objid);
+                    slotOpenDocument(objid);
+                }
+            } else if (thisa.innerHTML == "取消") {
+                var liarr = thisa.parentNode.getElementsByTagName("li");
+                for (var i in liarr) {
+                    if (liarr[i].innerHTML == "") {
+                        liarr[i].innerHTML = "接收";
+                    }
+                    if (liarr[i].innerHTML == "取消") {
+                        liarr[i].innerHTML = "另存为";
+                    }
+                }
+
+                var divid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                //alert(divid);
+                var ulid = divid.concat("recv2");
+                var arrli = document.getElementById(ulid).getElementsByTagName("li");
+                for (var j in arrli) {
+
+                    if (arrli[j].innerHTML == "正在接收文件...") {
+                        arrli[j].innerHTML = "有文件需要接收...";
+                    }
+                }
+
+                slotCancleLoadorDownLoad();
+            }
+
+        }
+        function getGroupFile(thisa) {
+            //alert(thisa);
+            if (thisa.innerText == "接收") {
+                var liarr = thisa.parentNode.getElementsByTagName("li");
+                for (var i in liarr) {
+                    if (liarr[i].innerHTML == "另存为") {
+                        liarr[i].innerHTML = "取消";
+                    }
+                    if (liarr[i].innerHTML == "接收") {
+                        liarr[i].innerHTML = "";
+                    }
+                }
+
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    //alert(objid);
+                    slotGetFile(objid);
+                }
+            }
+            if (thisa.innerText == "打开") {
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    //alert(objid);
+                    slotOpenGroupFile(objid);
+                }
+            }
+        }
+
+        function saveGroupFile(thisa) {
+            if (thisa.innerText == "另存为") {
+                var bl;
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    //alert(objid);
+                    bl = slotSaveFile(objid);
+                }
+
+                if (bl != 0) {
+                    var liarr = thisa.parentNode.getElementsByTagName("li");
+                    for (var i in liarr) {
+                        if (liarr[i].innerHTML == "另存为") {
+                            liarr[i].innerHTML = "取消";
+                        }
+                        if (liarr[i].innerHTML == "接收") {
+                            liarr[i].innerHTML = "";
+                        }
+                    }
+                }
+
+            } else if (thisa.innerHTML == "打开文件夹") {
+                var objid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                if (objid != null) {
+                    //alert(objid);
+                    slotOpenDocument(objid);
+                }
+            } else if (thisa.innerHTML == "取消") {
+                var liarr = thisa.parentNode.getElementsByTagName("li");
+                for (var i in liarr) {
+                    if (liarr[i].innerHTML == "") {
+                        liarr[i].innerHTML = "接收";
+                    }
+                    if (liarr[i].innerHTML == "取消") {
+                        liarr[i].innerHTML = "另存为";
+                    }
+                }
+
+                var divid = thisa.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("id");
+                //alert(divid);
+                var ulid = divid.concat("recv2");
+                var arrli = document.getElementById(ulid).getElementsByTagName("li");
+                for (var j in arrli) {
+
+                    if (arrli[j].innerHTML == "正在接收文件...") {
+                        arrli[j].innerHTML = "有文件需要接收...";
+                    }
+                }
+                slotCancleLoadorDownLoad();
+            }
+
+        }
+        //added by wangqingjie
+        function ChangeLi(strUlID) {
+            var obj = document.getElementById(strUlID).getElementsByTagName("li");
+            for (i in obj) {
+
+                if (obj[i].innerHTML == "正在发送文件...") {
+                    obj[i].innerHTML = "成功发送文件!";
+                }
+
+                if (obj[i].innerHTML == "取消") {
+                    obj[i].innerHTML = "";
+                }
+            }
+        }
+
+        function ChangeLiTwo(strUlID) {
+            var obj = document.getElementById(strUlID).getElementsByTagName("li");
+            for (i in obj) {
+                if (obj[i].innerHTML == "取消") {
+                    obj[i].innerHTML = "打开文件夹";
+                }
+                if (obj[i].innerHTML == "正在接收文件...") {
+                    obj[i].innerHTML = "已成功接收文件";
+                }
+                if (obj[i].innerHTML == "有文件需要接收...") {
+                    obj[i].innerHTML = "正在接收文件...";
+                }
+                if (obj[i].innerHTML == "接收") {
+                    obj[i].innerHTML = "";
+                }
+                if (obj[i].innerHTML == "另存为") {
+                    obj[i].innerHTML = "打开文件夹";
+                }
+                if (obj[i].innerHTML == "") {
+                    obj[i].innerHTML = "打开";
+                }
+            }
+        }
+        function ChangeLiThr(ID) {
+            var obj = document.getElementById(ID).getElementsByTagName("li");
+            for (i in obj) {
+                if (obj[i].innerHTML == "") {
+                    obj[i].innerHTML = "接收";
+                }
+                if (obj[i].innerHTML == "取消") {
+                    obj[i].innerHTML = "另存为";
+                }
+                if (obj[i].innerHTML == "正在接收文件...") {
+                    obj[i].innerHTML = "有文件需要接收...";
+                }
+            }
+
+        }
+        //end added
+        function RecAppend(strImgPath, strMsg, strMsgID, score) {
+            //added by wangqingjie
+            var objsrc = document.getElementById(strMsgID);
+            if (objsrc != null) {
+                objsrc.parentNode.removeChild(objsrc);
+            }
+            //end added
+
+            var obj = document.getElementById("content");
+            var h = "<div id=" + strMsgID + "  style='overflow:hidden;'><p class='divotherhead'><img width=30px height=30px src = " + strImgPath + " \></p><p class='triangle-left left'ondblclick=\"ChangeSize(this)\"> " + strMsg + " </p>";
+			h += "<div style='font-size:13px;color:#e4ba7b;'><img width='20px' height='20px' src='diamond1.png' style='margin-left: 10px;margin-bottom: -4px'>+" +score+ "</div></div>";
+            obj.insertAdjacentHTML("beforeEnd", h);
+            window.setTimeout("window.scrollTo(0, document.body.scrollHeight);", 0);
+        }
+        function VdoAppend(strImgPath, strMsg, strMsgID, score) {
+            //added by wangqingjie
+            var objsrc = document.getElementById(strMsgID);
+            if (objsrc != null) {
+                objsrc.parentNode.removeChild(objsrc);
+
+            }
+            //end added
+
+            var obj = document.getElementById("content");
+            var h = "<div id=" + strMsgID + "  style='overflow:hidden;'><p class='divotherhead'><img width=30px height=30px src = " + strImgPath + " \></p><p class='triangle-left left' onclick=\"videoPlay(this)\"> <img src='./readyPlay.png' style='position:absolute;'>" + strMsg + " </p>";
+            h += "<div style='font-size:13px;color:#e4ba7b;'><img width='20px' height='20px' src='diamond1.png' style='margin-left: 10px;margin-bottom: -4px'>+" +score+ "</div></div>";
+            obj.insertAdjacentHTML("beforeEnd", h);
+            
+            //将播放标志放到正中。
+            var div = document.getElementById(strMsgID);
+            var videoList = div.getElementsByTagName("video");
+            var video = videoList[0];
+            var imgList = div.getElementsByTagName("img");
+            var img = imgList[1];  //播放标志是第二个img标签。
+            var x = (parseInt(video.offsetWidth) - 100) / 2;
+            var y = (parseInt(video.offsetHeight) - 100) / 2;
+            img.style.top = y.toString();
+            img.style.left = x.toString();
+            
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        function ChangeSize(thisa) {
+            var Ptr = thisa.getElementsByTagName("img");
+            var src = Ptr[0].src;
+
+			if(Ptr[0].className != 'expression')
+                slotZoomImg(src); 
+        }
+
+        function videoPlay(thisa)
+        {
+            var Ptr = thisa.getElementsByTagName("video");
+            var src = Ptr[0].src;
+
+            slotVideoPlay(src);
+        }
+
+        // wxd add code - start
+        // note : 群组聊天接收消息后显示头像加昵称
+        function GroupRecvAppend(strImgPath, strMsg, strBuddyNickName, strMsgId, score) {
+            //added by wangqingjie
+            var objdiv = document.getElementById(strMsgId);
+            if (objdiv != null) {
+                objdiv.parentNode.removeChild(objdiv);
+            }
+            //end added
+
+            var obj = document.getElementById("content");
+			var h = "<div id=" + strMsgId + " style='overflow:hidden;'><p class='divotherhead'><img width='30px' height='30px' src = " + strImgPath + " \><div style='text-align:left;color:#B2B2B2;font-size:12px;margin-left:10px'>" + strBuddyNickName + "</div></p><p class='triangle-left left' ondblclick=\"ChangeGroupSize(this)\">" + strMsg + "</p>";
+			h += "<div style='margin-left:40px; font-size:13px;color:#e4ba7b;'><img width='20px' height='20px' src='diamond1.png' style='margin-bottom: -4px'>+" +score+ "</div></div>";
+            obj.insertAdjacentHTML("beforeEnd", h);
+            window.setTimeout("window.scrollTo(0, document.body.scrollHeight);", 0);
+        }
+        function GroupVdoAppend(strImgPath, strMsg, strBuddyNickName, strMsgId, score) {
+            //added by wangqingjie
+            var objdiv = document.getElementById(strMsgId);
+            if (objdiv != null) {
+                objdiv.parentNode.removeChild(objdiv);
+            }
+            //end added
+
+            var obj = document.getElementById("content");
+            var h = "<div id=" + strMsgId + " style='overflow:hidden;'><p class='divotherhead'><img width=30px height=30px src = " + strImgPath + " \><div style='text-align:left;color:#B2B2B2;font-size:12px;margin-left:10px'>" + strBuddyNickName + "</div></p><p class='triangle-left left' onclick=\"GroupVideoPlay(this)\"><img src='./readyPlay.png' style='position:absolute;'>" + strMsg + "</p>";
+            h += "<div style='margin-left:40px; font-size:13px;color:#e4ba7b;'><img width='20px' height='20px' src='diamond1.png' style='margin-bottom: -4px'>+" +score+ "</div></div>";
+            obj.insertAdjacentHTML("beforeEnd", h);
+            //将播放标志放到正中。
+            var div = document.getElementById(strMsgId);
+            var videoList = div.getElementsByTagName("video");
+            var video = videoList[0];
+            var imgList = div.getElementsByTagName("img");
+            var img = imgList[1];  //播放标志是第二个img标签。
+            var x = (parseInt(video.offsetWidth) - 100) / 2;
+            var y = (parseInt(video.offsetHeight) - 100) / 2;
+            img.style.top = y.toString();
+            img.style.left = x.toString();
+            
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+        function ChangeGroupSize(thisa) {
+            var Ptr = thisa.getElementsByTagName("img");
+            var src = Ptr[0].src;
+
+            slotZoomImg(src);
+        }
+        function GroupVideoPlay(thisa)
+        {
+        	var Ptr = thisa.getElementsByTagName("video");
+            var src = Ptr[0].src;
+
+            slotVideoPlay(src);
+        }
+        // wxd add code - end
+        function choosephoto() {
+            var obj = document.getElementById("content");
+            obj.insertAdjacentHTML("afterEnd", "<div style='overflow:hidden;'><p class='divMyHead' width='30px' height='30px'></p><p class='triangle-right right'>nice</p></div>");
+        }
+        function clear() {
+            document.body.innerHTML = '';
+        }
+
+        function openUrl(thisa) {
+            var msgID = thisa.getAttribute("name");
+            slotOpenUrl(msgID);
+        }
+
+        function SendTask(strImgPath, strSystemName, strImgeUrl, strTime, strTitle, MsgState, StrMsgID) {
+            var obj = document.getElementById("content");
+            var strMsgState = GetMsgState(MsgState);
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div style='overflow:hidden;'>\
+                    <p class='divMyHead'>\
+                        <img width=30px height=30px src =" + strImgPath + " />\
+                    </p>\
+                    <div style='float:right;'>\
+                         <ul class=''>\
+                            <li>\
+                                <img id=" + StrMsgID + " class='MessageState' style='border-radius:50%;' width=12px height=12px src=" + strMsgState + "\>\
+                            </li>\
+                            <li>\
+                                <div class='triangle-right right' style=\"width:250px;height:90\">\
+                                    <div class='lb'style=\"height:60px;\">\
+										<div>\
+										<img name = " + StrMsgID + " onclick=\"openUrl(this)\" style='cursor:hand;' width=64px height=64px src=" + strImgeUrl + " />\
+										</div>\
+										<div class='namesta' style=\"margin:0 auto;\">\
+                                            <ul style=\"margin:0 auto;padding-left:15px \">\
+												<text>" + strTitle + "</text><br>\
+                                            </ul>\
+										</div>\
+										<div style=\"margin-top:3px;padding-top:6px;width: 250px; height: 0px; border: solid 0px #ccc; position:relative\">\
+											<div style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+											<div style=\"background-color: #E0EEE0; width: 250px; height: 1px;position:absolute;left:0;top:0\"></div>\
+										</div>\
+										<div class='btn'style=\"margin:0 auto;\">\
+											<ul style=\"margin:0 auto;width: 250px;height: 22px; padding: 0px;\">\
+												<li style=\"font-size:12px;padding-top:15px;color:#000000;float:left;\">" + strSystemName + "</li>\
+												<li style=\"font-size:12px;padding-top:15px;color:#000000;float:right;\">" + strTime + "</li>\
+											</ul>\
+										</div>\
+									</div>\
+                                </div>\
+                            </li>\
+                        </ul>\
+                    </div>\
+                 </div>");
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        function RecTask(strImgPath, strSystemName, strImgeUrl, strTime, strTitle, strSubtitle, strClicketUrl, StrMsgID) {
+            var obj = document.getElementById("content");
+            obj.insertAdjacentHTML("beforeEnd",
+                "<div id= " + StrMsgID + " style='overflow:hidden;'>\
+			        <p class=\"divotherhead\">\
+			            <img width=30px height=30px src=" + strImgPath + " />\
+			        </p>\
+			        <div class=\"triangle-left left\" style=\" width:220px;height:90px\">\
+				        <div class='lb'style=\"height:60px;\">\
+                            <div>\
+                     	        <img name = " + StrMsgID + " onclick=\"openUrl(this)\" style='cursor:hand;' width=64px height=64px src=" + strImgeUrl + " />\
+                            </div>\
+                            <div class='namesta' style=\"height:64px;margin:0 auto;\">\
+                                <ul  style=\"margin:0px auto;padding-left:15px;\">\
+						            <text>" + strTitle + "</text><br>\
+                                    <text>" + strSubtitle + "</text>\
+					            </ul>\
+                            </div>\
+                        </div>\
+                        <div style=\"margin-top:3px;padding-top:6px;width: 220px; height: 0px; border: solid 0px #ccc; position:relative\">\
+                           <div style=\"background-color: #E0EEE0; width: 220px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                           <div style=\"background-color: #E0EEE0; width: 220px; height: 1px;position:absolute;left:0;top:0\"></div>\
+                        </div>\
+                        <div class='btn'>\
+                            <ul style=\"margin:0 auto;width: 220px;height: 22px; padding: 0px;\">\
+                                <li style=\"font-size:12px;padding-top:15px;color:#000000;float:left;\">" + strSystemName + "</li>\
+                                <li style=\"font-size:12px;padding-top:15px;color:#000000;float:right;\">" + strTime + "</li>\
+                            </ul>\
+                        </div>\
+                   </div>\
+		        </div>");
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    </script>
+</html>

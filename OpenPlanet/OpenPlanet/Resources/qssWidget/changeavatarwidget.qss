@@ -1,0 +1,81 @@
+QWidget#widget
+{
+background-color: #4e67a5;
+}
+
+QLabel#iconLabel
+{
+border-image: url(':/Login/Resources/login/system.png');
+}
+
+QLabel#titleLabel
+{
+font: 75 10pt "微软雅黑";
+font-weight:bold;
+color: rgb(255, 255, 255);
+}
+
+QPushButton#closeBtn
+{
+border-image: url(':/PerChat/Resources/person/close01.png');
+}
+QPushButton#closeBtn:hover
+{
+border-image: url(':/PerChat/Resources/person/close03.png');
+}
+
+QWidget#widget_2
+{
+background-color: rgb(240, 240, 240);
+}
+
+QScrollArea#scrollArea
+{
+border: none;
+}
+
+QWidget#widget_4
+{
+background-color: rgb(240, 240, 240);
+}
+
+QPushButton#uploadBtn
+{
+border: 1px solid grey;
+border-radius: 5px;
+background-color: white;
+}
+
+QPushButton#uploadBtn:hover
+{
+background-color: LightGrey;
+}
+
+QPushButton#confirmBtn
+{
+border: 1px solid grey;
+border-radius: 5px;
+background-color: white;
+}
+
+QPushButton#confirmBtn:hover
+{
+background-color: LightGrey;
+}
+
+QPushButton#cancelBtn
+{
+border: 1px solid grey;
+border-radius: 5px;
+background-color: white;
+}
+QPushButton#cancelBtn:hover
+{
+background-color: LightGrey;
+}
+
+
+
+
+
+

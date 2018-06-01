@@ -1,0 +1,95 @@
+QListWidget
+{
+    border:none;
+    background-color: #f5f5f5;
+}
+QListWidget::item
+{
+border:none;
+}
+QListWidget::item:selected
+{
+    
+    background-color: #d6d6d6;
+	padding: -1px;
+color:black;
+}
+
+QPushButton#localBtn
+{
+background-image:url(:/robotsWidget/Resources/robotsWidget/robots_local.png);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    border-top: 2px solid #c6c6c6;
+    background-color: #d6d6d6;
+}
+
+QPushButton#localBtn:checked
+{
+background-image:url(:/robotsWidget/Resources/robotsWidget/robots_local_checked.png);
+	background-position: center;
+   background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    border-top: 2px solid #44768f;
+    background-color: #f5f5f5;
+}
+
+QPushButton#followBtn
+{
+background-image:url(:/robotsWidget/Resources/robotsWidget/robots_follow.png);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    border-top: 2px solid #c6c6c6;
+    background-color: #d6d6d6;
+}
+
+QPushButton#followBtn:checked
+{
+background-image:url(:/robotsWidget/Resources/robotsWidget/robots_follow_checked.png);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: none;
+    border-top: 2px solid #44768f;
+    background-color: #f5f5f5;
+}
+
+QWidget#rightWidget
+{
+background-color: rgb(255, 255, 255);
+}
+
+QLabel#label
+{
+background-color: rgb(255, 255, 0);
+}
+
+QWidget#detailsWidget
+{
+border-image:url(:/robotsWidget/Resources/robotsWidget/border.png) 14 round;
+border: 14px;
+}
+
+QLabel#label_2
+{
+background-color: rgb(16, 143, 233);
+color: rgb(255, 255, 255);
+padding: 5px;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+QPlainTextEdit#detailsText
+{
+border: none;
+}
+
+QWidget#spacer
+{
+background-color: rgb(255, 255, 255);
+}

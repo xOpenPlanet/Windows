@@ -1,0 +1,84 @@
+QWidget#widget
+{
+border-image: url(:/profile/Resources/profile/groupHeader.png);
+}
+
+QLabel
+{
+color: #108ee9;
+}
+
+QLabel#numberLabel
+{
+color: grey;
+}
+
+QWidget#widget_2
+{
+background-color: #0a182d;
+}
+
+QPushButton#indexBtn
+{
+color: grey;
+border: none;
+margin-bottom: 2px;
+}
+QPushButton#indexBtn:checked
+{
+color: black;
+margin-bottom: 0px;
+border-bottom: 2px solid blue;
+}
+
+QPushButton#memberBtn
+{
+color: grey;
+border: none;
+margin-bottom: 2px;
+}
+QPushButton#memberBtn:checked
+{
+color: black;
+margin-bottom: 0px;
+border-bottom: 2px solid blue;
+}
+
+QPushButton#settingsBtn
+{
+color: grey;
+border: none;
+margin-bottom: 2px;
+}
+QPushButton#settingsBtn:checked
+{
+color: black;
+margin-bottom: 0px;
+border-bottom: 2px solid blue;
+}
+
+QStackedWidget#stackedWidget
+{
+background-color: #0a182d;
+}
+
+QLabel#label_3
+{
+color: grey;
+}
+
+QLabel#label1
+{
+color: grey;
+}
+
+QLabel#label_7
+{
+color: grey;
+}
+
+QLabel#label_5
+{
+color: grey;
+}
+

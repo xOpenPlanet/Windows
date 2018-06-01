@@ -1,0 +1,92 @@
+QWidget#titleWidget
+{
+background-color: #4e67a5;
+}
+
+QLabel#iconLabel
+{
+border-image: url(':/Login/Resources/login/system.png');
+}
+
+QLabel#label_6
+{
+color: rgb(255, 255, 255);
+}
+
+QPushButton#minBtn
+{
+border-image: url(':/PerChat/Resources/person/minsize03.png');
+}
+QPushButton#minBtn:hover
+{
+border-image: url(':/PerChat/Resources/person/minsize35.png');
+}
+
+QPushButton#quitBtn
+{
+border-image: url(':/PerChat/Resources/person/close01.png');
+}
+QPushButton#quitBtn:hover
+{
+border-image: url(':/PerChat/Resources/person/close03.png');
+}
+
+QLineEdit#nickNameEdit
+{
+border: 1px solid Gainsboro;
+border-radius: 5px;
+}
+
+QPlainTextEdit#signTextEdit
+{
+border: 1px solid Gainsboro;
+border-radius: 5px;
+}
+
+QComboBox
+{
+border: 1px solid Gainsboro;
+border-radius: 5px;
+}
+QComboBox::drop-down {
+   border: none;
+}
+QComboBox::down-arrow {
+    
+	border-image: url(:/TreeIcon/Resources/TreeIcon/tree_open.png);
+}
+
+QLineEdit#phoneEdit
+{
+border: 1px solid Gainsboro;
+border-radius: 5px;
+}
+
+QLineEdit#mailEdit
+{
+border: 1px solid Gainsboro;
+border-radius: 5px;
+}
+
+QPushButton#saveBtn
+{
+background-color: rgb(255, 255, 255);
+border: 1px solid grey;
+border-radius: 5px;
+}
+QPushButton#saveBtn:hover
+{
+background-color: Gainsboro;
+}
+
+QPushButton#closeBtn
+{
+background-color: rgb(255, 255, 255);
+border: 1px solid grey;
+border-radius: 5px;
+}
+QPushButton#closeBtn:hover
+{
+background-color: Gainsboro;
+}
+
